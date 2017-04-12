@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgis
+  encoding: unicode
+  schema_search_path: public
+
+development:
+  <<: *default
+  host: localhost
+  database: financials
+  username: financials
+  password: financials
+  template: template0
+
+
+test:
+  <<: *default
+  host: localhost
+  database: travis_ci_test
+  username: postgres
+  template: template0

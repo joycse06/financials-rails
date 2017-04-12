@@ -1,0 +1,44 @@
+language: ruby
+rvm:
+  - "2.3.1"
+
+cache:
+  bundler: true
+  apt: true
+  directories:
+    - $TRAVIS_BUILD_DIR/dependencies
+    - $TRAVIS_BUILD_DIR/app/assets/webpack
+    - $TRAVIS_BUILD_DIR/public/assets
+    - $TRAVIS_BUILD_DIR/client/node_modules
+    - $TRAVIS_BUILD_DIR/node_modules
+
+sudo: required
+
+env:
+  - RAILS_ENV=test METRICS=1 WITH_RSPEC_RETRY=1 NODE_PATH=$TRAVIS_BUILD_DIR/dependencies/node
+
+# Force Version 9.3 of postgres to match prod
+addons:
+  postgresql: "9.3"
+
+services:
+  - postgresql
+  - redis-server
+
+before_install:
+  - export PATH=$TRAVIS_BUILD_DIR/dependencies/bin:$PATH LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/dependencies/lib:LD_LIBRARY_PATH
+  - export TZ=Australia/Melbourne
+  - ./config/ci/travis/install-dependencies.sh
+  - mkdir -p $NODE_PATH
+  - mkdir -p $TRAVIS_BUILD_DIR/log
+  - nvm install 6.6
+  - nvm use 6.6
+  - env
+  - export CXX="g++-4.8" && export CC="gcc-4.8"
+
+before_script:
+  - bundle exec rake db:create db:schema:load db:migrate
+  - npm install
+
+script:
+  - bundle exec rspec
