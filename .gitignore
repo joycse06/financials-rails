@@ -8,7 +8,6 @@ vendor/bundle/
 /config/settings.yml
 /config/access.yml
 /public/system
-/public/cms_images
 # Ignore all logfiles and tempfiles.
 *.log
 /log/*.log
@@ -16,8 +15,6 @@ vendor/bundle/
 /tmp
 /coverage
 /.vagrant/
-/.phraseapp.yml
-dragonfly.log
 *.log
 .DS_Store
 *.sw?
@@ -27,8 +24,6 @@ nohup.out
 # React on Rails
 npm-debug.log
 node_modules
-# Ignore translation files
-/phrase/locales/phrase.*.yml
 # Ignore environment variables
 .rbenv-vars
 
@@ -39,16 +34,6 @@ node_modules
 # Npm logs
 client/npm-debug.log*
 gemini-report/
-gemini/screens/sitemap
-gemini/failures
 /public/packs
-/public/product_images
-/public/cms_images
-log/gemini-failure
-log/gemini-ss
 /public/packs
 /node_modules
-
-# Ignore database dumps
-production_dumps
-db/*.dump
