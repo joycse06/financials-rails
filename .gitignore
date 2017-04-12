@@ -1,0 +1,54 @@
+# Ignore bundler config.
+/vendor/bundle
+/.bundle
+vendor/bundle/
+/tags
+/config/database.yml
+/config/secrets.yml
+/config/settings.yml
+/config/access.yml
+/public/system
+/public/cms_images
+# Ignore all logfiles and tempfiles.
+*.log
+/log/*.log
+*.log
+/tmp
+/coverage
+/.vagrant/
+/.phraseapp.yml
+dragonfly.log
+*.log
+.DS_Store
+*.sw?
+.BridgeSort
+dump.rdb
+nohup.out
+# React on Rails
+npm-debug.log
+node_modules
+# Ignore translation files
+/phrase/locales/phrase.*.yml
+# Ignore environment variables
+.rbenv-vars
+
+# Generated js bundles
+/app/assets/webpack/*
+/app/assets/packs/
+
+# Npm logs
+client/npm-debug.log*
+gemini-report/
+gemini/screens/sitemap
+gemini/failures
+/public/packs
+/public/product_images
+/public/cms_images
+log/gemini-failure
+log/gemini-ss
+/public/packs
+/node_modules
+
+# Ignore database dumps
+production_dumps
+db/*.dump
